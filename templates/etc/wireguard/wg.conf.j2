@@ -45,7 +45,8 @@ PostDown = {{ wg_postdown }}
 SaveConfig = true
 {% endif %}
 {% for host in ansible_play_hosts %}
-{%   if host != inventory_hostname %}
+{%   if host != inventory_hostname and (hostvars[host].wireguard_server or
+        hostvars[inventory_hostname].wireguard_server) %}
 
 [Peer]
 # {{ host }}
