@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 - name: (MacOS) Install wireguard package
+  become: yes
   package:
     name: wireguard-go
     state: present
@@ -10,6 +11,7 @@
     - wg-install
 
 - name: (MacOS) Install wireguard-tools package
+  become: yes
   package:
     name: wireguard-tools
     state: present
